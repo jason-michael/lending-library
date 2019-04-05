@@ -2,12 +2,28 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const WrapSchema = new Schema({
-  lenderName: {
+  brand: {
     type: String,
     required: false
   },
-  lenderNumber: {
-    type: Number,
+  name: {
+    type: String,
+    required: false
+  },
+  size: {
+    type: String,
+    required: false
+  },
+  type: {
+    type: String,
+    required: false
+  },
+  isAvailable: {
+    type: Boolean,
+    required: false
+  },
+  image: {
+    type: String,
     required: false
   },
   borrowerName: {
@@ -15,14 +31,13 @@ const WrapSchema = new Schema({
     required: false
   },
   borrowerNumber: {
-    type: Number,
+    type: String,
     required: false
   },
-  isAvailable: {
-    type: Boolean,
+  borrowerEmail: {
+    type: String,
     required: false
-  },
-
+  }
 });
 
 const Wrap = mongoose.model('Wrap', WrapSchema);
