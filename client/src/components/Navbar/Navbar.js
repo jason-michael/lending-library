@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { NavLink } from 'react-router-dom'
 
-const Navbar = styled.div`
+const NavbarWrapper = styled.div`
   height: 6vh;
   width: 100vw;
   position: fixed;
@@ -31,13 +31,13 @@ const Link = styled(NavLink)`
   }
 `
 
-export default function Navbar(props) {
+export default props => {
   return (
-    <Navbar>
+    <NavbarWrapper>
       <Link to="/">Home</Link>
       <Link to="/wraps">Wraps</Link>
       <Link to="/">Lend</Link>
       <Link to="/">Return</Link>
-    </Navbar>
+    </NavbarWrapper>
   )
 }
