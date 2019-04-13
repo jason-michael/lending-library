@@ -1,50 +1,41 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { Menu } from 'semantic-ui-react';
+import React from 'react'
+import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
 
-export default class MenuExampleBasic extends React.Component {
-  state = {};
+const Navbar = styled.div`
+  height: 6vh;
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  background: #fff;
+  border-top: 1px solid #ccc;
+`
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+const Link = styled(NavLink)`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #000;
+  position: relative;
+  background: ${p => p.active ? '#ddd' : 'transparent'};
 
-  render() {
-    const { activeItem } = this.state;
-
-    return (
-      <Menu size="massive" secondary pointing color="blue">
-        <Menu.Item position="left" header>Lawrence Lending Library</Menu.Item>
-
-        <Menu.Item
-          position="right"
-          as={NavLink}
-          to="/home"
-          name="home"
-          active={activeItem === "home"}
-          content="Home"
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item
-          as={NavLink}
-          to="/lend"
-          name="lend"
-          active={activeItem === "lend"}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item
-          as={NavLink}
-          to="/return"
-          name="return"
-          active={activeItem === "return"}
-          onClick={this.handleItemClick}
-        />
-        <Menu.Item
-          as={NavLink}
-          to="/inventory"
-          name="inventory"
-          active={activeItem === "inventory"}
-          onClick={this.handleItemClick}
-        />
-      </Menu>
-    );
+  ::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    border-left: 1px solid #eee;
+    height: 80%;
   }
-}
+`
+
+export default props => (
+  <Navbar>
+    <Link to="/">Home</Link>
+    <Link to="/wraps">Wraps</Link>
+    <Link to="/">Lend</Link>
+    <Link to="/">Return</Link>
+  </Navbar>
+)
