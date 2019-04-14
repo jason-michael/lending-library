@@ -2,10 +2,10 @@
   "name": "lending-library",
   "version": "1.0.0",
   "description": "Asset management app for the Lawrence KS Babywearing group.",
-  "main": "server/server.js",
+  "main": "server.js",
   "scripts": {
-    "start": "cd server && yarn start",
-    "dev": "cd server && yarn dev",
+    "start": "node server.js",
+    "dev": "concurrently \"nodemon server.js\" \"cd client && yarn start\"",
     "heroku-postbuild": "cd client && yarn && yarn run build"
   },
   "repository": {
@@ -17,5 +17,13 @@
   "bugs": {
     "url": "https://github.com/jason-michael/lending-library/issues"
   },
-  "homepage": "https://github.com/jason-michael/lending-library#readme"
+  "homepage": "https://github.com/jason-michael/lending-library#readme",
+  "devDependencies": {
+    "concurrently": "^4.1.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.20"
+  }
 }
