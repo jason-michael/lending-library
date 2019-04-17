@@ -1,7 +1,7 @@
 {
-  "name": "lending-library",
+  "name": "lbw-library",
   "version": "1.0.0",
-  "description": "Asset management app for the Lawrence KS Babywearing group.",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -12,18 +12,15 @@
     "type": "git",
     "url": "git+https://github.com/jason-michael/lending-library.git"
   },
-  "author": "Jason Michael",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jason-michael/lending-library/issues"
-  },
   "homepage": "https://github.com/jason-michael/lending-library#readme",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.5.1"
+  },
   "devDependencies": {
     "concurrently": "^4.1.0"
-  },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.16.4",
-    "mongoose": "^5.4.20"
   }
 }

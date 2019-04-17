@@ -1,15 +1,17 @@
-const db = require('../models');
+const db = require('./model');
 
 module.exports = {
-  async findAll(req, res) {
+  async findAllWraps(req, res) {
     try {
-      const allWraps = await db.Wrap.find({});
-      res.json(allWraps);
-    } catch (err) {
+      const wraps = await db.Wrap.find({});
+      res.json(wraps);
+    }
+    catch (err) {
       res.json(err);
     }
   },
-  async addNewWrap(req, res) {
+
+  async addWrap(req, res) {
     try {
       const newWrap = await db.Wrap.create({
         brand: req.body.brand,
@@ -23,23 +25,25 @@ module.exports = {
         isAvailable: req.body.isAvailable || true
       });
       res.json(newWrap);
-    } catch (err) {
+    }
+    catch (err) {
       res.json(err);
     }
   },
+
   async deleteWrap(req, res) {
     try {
-      const wrapToRemove = await db.Wrap.findOneAndRemove({ _id: req.body.id });
-      res.json(wrapToRemove);
+      const wrapToDelete = await db.Wrap.deleteOne({ _id: req.body._id });
+      res.json(wrapToDelete);
     } catch (err) {
       res.json(err);
     }
   },
-  // ! Remove
-  async toggleAvailable(req, res) {
+
+  async updateWrap(req, res) {
     try {
-      const wrapToToggle = await db.Wrap.findOneAndUpdate({ _id: req.body.id}, {$set: {isAvailable: req.body.isAvailable}});
-      res.json(wrapToToggle);
+      const wrapToUpdate = await db.Wrap.findOneAndUpdate({ _id: req.body._id}, {$set: {isAvailable: req.body.isAvailable}});
+      res.json(wrapToUpdate);
     } catch (err) {
       res.json(err);
     }

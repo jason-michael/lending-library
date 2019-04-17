@@ -1,0 +1,22 @@
+GET http://localhost:5000/api/v1/wraps
+
+###
+
+POST http://localhost:5000/api/v1/wraps
+Content-Type: application/json
+
+{
+  "brand": "Bijou",
+  "name": "Pinwheels",
+  "type": "Wrap",
+  "size": "5"
+}
+
+###
+
+DELETE http://localhost:5000/api/v1/wraps
+Content-Type: application/json
+
+{
+  "_id": "5cb3d55ee0e8b42600d78ec2"
+}

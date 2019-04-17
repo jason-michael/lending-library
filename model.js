@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-
-const WrapSchema = new Schema({
+const Wrap = mongoose.model('Wrap', new mongoose.Schema({
   brand: {
     type: String,
     required: false
@@ -18,12 +16,12 @@ const WrapSchema = new Schema({
     type: String,
     required: false
   },
-  isAvailable: {
-    type: Boolean,
+  src: {
+    type: String,
     required: false
   },
-  image: {
-    type: String,
+  isAvailable: {
+    type: Boolean,
     required: false
   },
   borrowerName: {
@@ -38,7 +36,6 @@ const WrapSchema = new Schema({
     type: String,
     required: false
   }
-});
+}));
 
-const Wrap = mongoose.model('Wrap', WrapSchema);
-module.exports = Wrap;
+module.exports = { Wrap };
